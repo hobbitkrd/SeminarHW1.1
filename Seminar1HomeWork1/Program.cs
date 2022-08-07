@@ -1,19 +1,29 @@
 ﻿
-Console.WriteLine("Введите число:");
-string num1 = Console.ReadLine();
-Console.WriteLine("Введите число:");
-string num2 = Console.ReadLine();
-GetMax(num1,num2);
-
-
-
-
-
-int GetMax(string firstValue,string secondValue)
+Console.WriteLine("Введите 2 числа через пробел:");
+var numbers = Console.ReadLine().Split(" ");
+Console.WriteLine($"{Max.GetMax(numbers[0], numbers[1])}");
+Console.WriteLine("Введите 3 числа через пробел:");
+numbers = Console.ReadLine().Split(" ");
+Console.WriteLine($"{Max.GetMax(numbers[0], numbers[1], numbers[2])}");
+Console.ReadLine();
+public class Max
 {
-    if (firstValue != secondValue)
+    public static string GetMax(string firstValue, string secondValue)
     {
-        return firstValue > secondValue ? firstValue : secondValue;
+        if (firstValue != secondValue)
+        {
+            return int.Parse(firstValue) > int.Parse(secondValue) ? $"Число {firstValue} больше" : $"Число {secondValue} больше";
+        }
+        else return "Они равны";
     }
-    else return firstValue;
+    public static string GetMax(string firstValue, string secondValue, string thirdValue)
+    {
+        if ((int.Parse(firstValue) + int.Parse(secondValue) + int.Parse(thirdValue)) / 3 != int.Parse(firstValue))
+        {
+            string maxOfTwo = int.Parse(firstValue) > int.Parse(secondValue) ? firstValue : secondValue;
+            return int.Parse(maxOfTwo) > int.Parse(thirdValue) ? $"Число {maxOfTwo} больше" : $"Число {thirdValue} больше";
+        }
+        else return "Они равны";
+
+    }
 }
