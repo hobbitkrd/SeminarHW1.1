@@ -10,6 +10,8 @@ Console.WriteLine($"{Max.GetMax(numbers[0], numbers[1], numbers[2])}");
 Console.WriteLine("Введите число для проверки на четность:");
 Console.WriteLine(EvenNumbersProcessing.ParityCheck(Console.ReadLine()));
 
+Console.WriteLine("Введите число для нахождения всех четных чисел:");
+Console.WriteLine(EvenNumbersProcessing.PrintAllEvenNum(Console.ReadLine()));
 
 Console.ReadLine();
 public class Max
@@ -39,6 +41,15 @@ public class EvenNumbersProcessing
     {
         return int.Parse(number) % 2 == 0 ? $"Число {number} четное" : $"Число {number} не четное";
 
+    }
+    public static string PrintAllEvenNum(string number)
+    {
+        var evenNumbers = new List<string>();
+        for (int i = 1; i <= int.Parse(number); i++)
+        {
+            if(i % 2 == 0) evenNumbers.Add(i.ToString());
+        }
+        return string.Join(" ", evenNumbers);
     }
 
 }
