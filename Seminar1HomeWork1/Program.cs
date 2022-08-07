@@ -1,10 +1,16 @@
 ﻿
-Console.WriteLine("Введите 2 числа через пробел:");
+Console.WriteLine("Введите 2 числа через пробел для нахождения максимального:");
 var numbers = Console.ReadLine().Split(" ");
 Console.WriteLine($"{Max.GetMax(numbers[0], numbers[1])}");
-Console.WriteLine("Введите 3 числа через пробел:");
+
+Console.WriteLine("Введите 3 числа через пробел для нахождения максимального:");
 numbers = Console.ReadLine().Split(" ");
 Console.WriteLine($"{Max.GetMax(numbers[0], numbers[1], numbers[2])}");
+
+Console.WriteLine("Введите число для проверки на четность:");
+Console.WriteLine(EvenNumbersProcessing.ParityCheck(Console.ReadLine()));
+
+
 Console.ReadLine();
 public class Max
 {
@@ -26,4 +32,13 @@ public class Max
         else return "Они равны";
 
     }
+}
+public class EvenNumbersProcessing 
+{
+    public static string ParityCheck(string number)
+    {
+        return int.Parse(number) % 2 == 0 ? $"Число {number} четное" : $"Число {number} не четное";
+
+    }
+
 }
